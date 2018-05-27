@@ -7,6 +7,8 @@ Vagrant.configure("2") do |config|
     yakkety
     zesty
     artful
+    bionic
+    cosmic
   )
 
   ubuntu.each do |vm_name|
