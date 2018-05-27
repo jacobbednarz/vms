@@ -1,9 +1,17 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "ubuntu-trusty", autostart: false do |trusty|
-    trusty.vm.box = "ubuntu/trusty64"
-  end
+  ubuntu = %w(
+    precise
+    trusty
+    wily
+    xenial
+    yakkety
+    zesty
+    artful
+  )
 
-  config.vm.define "ubuntu-xenial", autostart: false do |xenial|
-    xenial.vm.box = "ubuntu/xenial64"
+  ubuntu.each do |vm_name|
+    config.vm.define "ubuntu-#{vm_name}", autostart: false do |vm|
+      vm.vm.box = "ubuntu/#{vm_name}64"
+    end
   end
 end
